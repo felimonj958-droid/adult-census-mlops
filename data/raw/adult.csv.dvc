@@ -1,0 +1,5 @@
+outs:
+- md5: PLACEHOLDER_RUN_DVC_ADD
+  size: PLACEHOLDER_SIZE
+  hash: md5
+  path: data/raw/adult.csv

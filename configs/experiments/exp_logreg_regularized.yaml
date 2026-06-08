@@ -1,0 +1,24 @@
+project:
+  random_state: 42
+data:
+  raw_path: data/raw/adult.csv
+  sample_path: data/raw/adult_sample.csv
+  target_column: income
+  test_size: 0.2
+  categorical_features: [workclass, education, marital-status, occupation, relationship, race, sex, native-country]
+  numeric_features: [age, fnlwgt, education-num, capital-gain, capital-loss, hours-per-week]
+model:
+  type: logistic_regression
+  params:
+    C: 0.3
+    max_iter: 1500
+    class_weight: balanced
+training:
+  primary_metric: f1
+  minimum_threshold: 0.55
+mlflow:
+  experiment_name: adult-income-experiments
+  tracking_uri: mlruns
+monitoring:
+  drift_share_threshold: 0.3
+  report_path: reports/drift_report.html

@@ -1,0 +1,12 @@
+stages:
+  train:
+    cmd: python src/train.py --config configs/train_config.yaml
+    deps:
+      - src/train.py
+      - src/preprocess.py
+      - src/evaluate.py
+      - src/data_loader.py
+      - configs/train_config.yaml
+      - data/raw/adult.csv
+    outs:
+      - models
