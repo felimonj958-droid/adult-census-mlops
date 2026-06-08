@@ -1,10 +1,11 @@
 import argparse
 import sys
 from pathlib import Path
-import yaml
+
 import pandas as pd
-from evidently import Report
-from evidently.presets import DataDriftPreset
+import yaml
+from evidently.report import Report
+from evidently.metric_preset import DataDriftPreset
 
 from src.data_loader import load_adult_dataset
 

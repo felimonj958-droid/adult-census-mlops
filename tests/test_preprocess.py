@@ -1,12 +1,13 @@
 import pandas as pd
+import numpy as np
 import pytest
 from src.preprocess import validate_dataframe, split_features_target, build_preprocessor
 
 
 def sample_df():
     return pd.DataFrame({
-        'age': [25, 30, None],
-        'workclass': ['Private', None, 'State-gov'],
+        'age': [25, 30, np.nan],
+        'workclass': ['Private', np.nan, 'State-gov'],
         'income': ['<=50K', '>50K', '<=50K']
     })
 

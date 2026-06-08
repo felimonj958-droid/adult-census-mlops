@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 
 def validate_dataframe(df: pd.DataFrame) -> None:
@@ -22,14 +22,24 @@ def split_features_target(df: pd.DataFrame, target_column: str):
 
 
 def build_preprocessor(categorical_features, numeric_features):
-    cat_pipeline = Pipeline([
-        ('imputer', SimpleImputer(strategy='most_frequent')),
-        ('encoder', OneHotEncoder(handle_unknown='ignore', sparse_output=False)),
-    ])
-    num_pipeline = Pipeline([
-        ('imputer', SimpleImputer(strategy='median')),
-    ])
-    return ColumnTransformer([
-        ('cat', cat_pipeline, categorical_features),
-        ('num', num_pipeline, numeric_features),
-    ], remainder='drop')
+    cat_pipeline = Pipeline(
+        steps=[
+            ("imputer", SimpleImputer(strategy="most_frequent")),
+            ("encoder", OneHotEncoder(handle_unknown="ignore", sparse_output=False)),
+        ]
+    )
+
+    num_pipeline = Pipeline(
+        steps=[
+            ("imputer", SimpleImputer(strategy="median")),
+            ("scaler", StandardScaler()),
+        ]
+    )
+
+    return ColumnTransformer(
+        transformers=[
+            ("cat", cat_pipeline, categorical_features),
+            ("num", num_pipeline, numeric_features),
+        ],
+        remainder="drop",
+    )

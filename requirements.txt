@@ -1,8 +1,16 @@
+# Keep pkg_resources available for mlflow, per deprecation note:
+# "Refrain from using this package or pin to Setuptools<81."
+setuptools==81.0.0
+
+# Core ML / data stack
+mlflow==2.14.3
+evidently==0.4.38
+scikit-learn==1.5.1
 pandas==2.2.2
 numpy==1.26.4
-scikit-learn==1.5.1
-pyyaml==6.0.2
-mlflow==2.14.3
-dvc==3.51.2
-pytest==8.3.2
-evidently==0.4.38
+
+# Config, testing, and utilities
+PyYAML==6.0.2
+pytest==8.3.3
+faker==40.21.0
+joblib==1.4.2
