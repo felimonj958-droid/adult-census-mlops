@@ -10,3 +10,4 @@ dvc_remote/files/
 .DS_Store
 .ipynb_checkpoints/all_requirements.txt
 all_requirements.txt
+data/raw/adult 2.csv
