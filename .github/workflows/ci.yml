@@ -34,8 +34,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Run training
-        run: python src/train.py --config configs/train_config.yaml
+        run: python -m src.train --config configs/train_config.yaml
       - name: Run experiment sweep
-        run: python scripts/run_experiments.py
+              run: python -m scripts.run_experiments
       - name: Run drift monitoring
-        run: python src/monitor_drift.py --config configs/train_config.yaml
+        run: python -m src.monitor_drift --config configs/train_config.yaml
+
+
