@@ -11,3 +11,4 @@ dvc_remote/files/
 .ipynb_checkpoints/all_requirements.txt
 all_requirements.txt
 data/raw/adult 2.csv
+/models

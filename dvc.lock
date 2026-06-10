@@ -1,0 +1,35 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python src/train.py --config configs/train_config.yaml
+    deps:
+    - path: configs/train_config.yaml
+      hash: md5
+      md5: 6eb9d7d578860f423d0f747512117721
+      size: 930
+    - path: data/raw/adult.csv
+      hash: md5
+      md5: 1b59240c65c1ffa4e209b78bd1784639
+      size: 5271057
+    - path: src/data_loader.py
+      hash: md5
+      md5: ed279de1014f231682bcc89d004c4240
+      size: 756
+    - path: src/evaluate.py
+      hash: md5
+      md5: 134ce7beccba90853aa1cb5def1e3217
+      size: 612
+    - path: src/preprocess.py
+      hash: md5
+      md5: 708bb176d130bbb4f2eb12b08852ca9c
+      size: 1377
+    - path: src/train.py
+      hash: md5
+      md5: 2430ca73507fdc6714f46969debc6b2c
+      size: 2817
+    outs:
+    - path: models
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
