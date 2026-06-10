@@ -11,7 +11,10 @@ def main():
 
     for config in configs:
         print(f'Running {config}...')
-        result = subprocess.run([sys.executable, 'src/train.py', '--config', str(config)], check=False)
+        result = subprocess.run(
+            [sys.executable, '-m', 'src.train', '--config', str(config)],
+            check=False
+        )
         if result.returncode != 0:
             raise SystemExit(result.returncode)
 
