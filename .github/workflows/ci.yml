@@ -36,8 +36,6 @@ jobs:
       - name: Run training
         run: python -m src.train --config configs/train_config.yaml
       - name: Run experiment sweep
-              run: python -m scripts.run_experiments
+        run: python -m scripts.run_experiments
       - name: Run drift monitoring
         run: python -m src.monitor_drift --config configs/train_config.yaml
-
-
